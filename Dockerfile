@@ -14,7 +14,7 @@ RUN apt install libc6-i386 libc6-dbg gcc-multilib -y
 RUN python3 -m pip install -U "pip<21.0"
 RUN python3 -m pip install -U pwntools
 RUN python3 -m pip install unicorn
-RUN python3 -m pip install keystone-engine
+RUN python3 -m pip install keystone
 RUN python3 -m pip install ropper
 
 RUN apt install libcapstone-dev -y
@@ -22,7 +22,7 @@ RUN apt install libcapstone-dev -y
 RUN apt install ruby-full ruby-dev -y
 RUN gem install one_gadget -v 1.7.3
 
-RUN wget -O ~/.gef.py -q https://github.com/hugsy/gef/releases/download/2021.01/gef.py
+RUN wget -O ~/.gef.py -q https://github.com/hugsy/gef/blob/2022.01/gef.py
 RUN echo source ~/.gef.py >> ~/.gdbinit
 
 RUN chsh -s $(which zsh) 
