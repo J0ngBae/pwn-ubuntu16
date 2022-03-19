@@ -22,8 +22,10 @@ RUN apt install libcapstone-dev -y
 RUN apt install ruby-full ruby-dev -y
 RUN gem install one_gadget -v 1.7.3
 
-RUN wget -O ~/.gef.py -q https://github.com/hugsy/gef/blob/2022.01/gef.py
-RUN echo source ~/.gef.py >> ~/.gdbinit
+RUN git clone https://github.com/longld/peda.git ~/peda
+RUN cd ~/
+RUN git clone https://github.com/scwuaptx/Pwngdb.git
+RUN cp ~/Pwngdb/.gdbinit ~/
 
 RUN chsh -s $(which zsh) 
 RUN zsh -c "$(wget -O- https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
